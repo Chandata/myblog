@@ -38,4 +38,3 @@ module.exports = function(eleventyConfig) {
     return util.inspect(obj);
   });
 };
->>>>>>> 4c2c3cd119b320319c5e9b8096e0bdf9f6dab385
