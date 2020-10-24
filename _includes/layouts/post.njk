@@ -4,6 +4,9 @@ layout: layouts/base.njk
 {{ content | safe}}
 <!-- author -->
 <hr />
+<div style="text-aligh: center;">
+  {% include 'layouts/author.njk' %}
+</div>
 <div style="text-align: center;">
   <p>
     <a href="{{ '/' | url }}"> <-- Home </a>
