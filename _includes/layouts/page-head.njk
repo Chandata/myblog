@@ -4,8 +4,16 @@
     <div class="row">
       <div class="col-lg-8 col-md-10 mx-auto">
         <div class="post-heading">
-          <h1>{{ title }}</h1>
-          <h2 class="subheading">{{ description }}</h2>
+          {% if author %}
+            <h1>{{ title }}</h1>
+            <h2 class="subheading">{{ description }}</h2>
+            <p class="meta">
+              Posted by <span style="https://res.cloudinary.com/stuckonsap/image/upload/f_auto,q_auto,w_26,h_26,c_thumb,g_face/v1603564892/Chandan_outdoor_uk3ryb.jpg"></span>{{ author }} on {{date | formatDate}}
+            </p>
+          {% else %}
+            <h1>{{ title }}</h1>
+            <h2 class="subheading">{{ description }}</h2>
+          {% endif %}  
         </div>
       </div>
     </div>
