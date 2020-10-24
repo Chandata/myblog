@@ -17,7 +17,7 @@ module.exports = function(eleventyConfig) {
     return util.inspect(obj);
   });
 };
-=======
+
 const util = require('util');
 
 module.exports = function(eleventyConfig) {
