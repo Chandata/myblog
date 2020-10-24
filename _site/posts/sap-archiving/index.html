@@ -8,7 +8,7 @@
 <meta name="description" content="">
 <meta name="author" content="">
 
-<title>My first Blog</title>
+<title>SAP Archiving</title>
 
 <link href="/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
 
@@ -53,8 +53,8 @@
     <div class="row">
       <div class="col-lg-8 col-md-10 mx-auto">
         <div class="post-heading">
-          <h1>My first Blog</h1>
-          <h2 class="subheading">Thoughts of an SAP Architect</h2>
+          <h1>SAP Archiving</h1>
+          <h2 class="subheading">How to even start with archiving</h2>
         </div>
       </div>
     </div>
@@ -65,44 +65,32 @@
   <div class="container">
     <div class="row">
       <div class="col-lg-8 col-md-10 mx-auto">
-          
+          <p>These needs to be built step by step:</p>
+<ol>
+<li>
+<p>Provision Space on disc (Could be on public cloud), using nfs.</p>
+</li>
+<li>
+<p>Mount the file system on each of the application servers.</p>
+</li>
+<li>
+<p>Configure in SAP using File transaction where you map the physical space to a logical space. Ensure you maintain separate per archiving object.</p>
+</li>
+<li>
+<p>Ensure the info object fields are activated in the sari transaction.</p>
+</li>
+<li>
+<p>Archive off happily to this storage area.</p>
+</li>
+</ol>
 
-<div class="post-preview">
-  <a href="/posts/my-first-post/">
-    <h2 class="post-title">
-       My First Post
-    </h2>
-    <h3 class="post-subtitle">
-      My very first post
-    </h3>
-  </a>
+<!-- author -->
+<hr />
+<div style="text-align: center;">
+  <p>
+    <a href="/"> <-- Home </a>
+  </p>
 </div>
-<hr>
-
-<div class="post-preview">
-  <a href="/posts/my-second-post/">
-    <h2 class="post-title">
-       My Second Post
-    </h2>
-    <h3 class="post-subtitle">
-      My second awesome post
-    </h3>
-  </a>
-</div>
-<hr>
-
-<div class="post-preview">
-  <a href="/posts/sap-archiving/">
-    <h2 class="post-title">
-       SAP Archiving
-    </h2>
-    <h3 class="post-subtitle">
-      How to even start with archiving
-    </h3>
-  </a>
-</div>
-<hr>
-
 
       </div>
     </div>
