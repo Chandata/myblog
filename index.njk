@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 ---
 layout: layouts/base.njk
 ---
@@ -19,25 +18,3 @@ layout: layouts/base.njk
 </div>
 <hr>
 {% endfor %}
-=======
----
-layout: layouts/base.njk
----
-{# }<pre>
-  {{collections.posts | dump}}
-</pre>
-#}
-{% for post in collections.posts%}
-<div class="post-preview">
-  <a href="{{post.url | url }}">
-    <h2 class="post-title">
-       {{post.data.title}}
-    </h2>
-    <h3 class="post-subtitle">
-      {{post.data.description}}
-    </h3>
-  </a>
-</div>
-<hr>
-{% endfor %}
->>>>>>> 4c2c3cd119b320319c5e9b8096e0bdf9f6dab385
