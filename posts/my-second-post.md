@@ -1,12 +1,12 @@
 ---
-title: My Second Post
+title: SAP hosting on public cloud
 date: 2020-10-10T00:00:00.000Z
 author: Chandan Hemnani
 description: My second awesome post
 layout: layouts/post.njk
 ---
-# My second Post
+# Scalable, Cost-effective deployment
 
-This is even better.
+Easy to increase foot-print. 
 
-This was also done with Netlify CMS :)
+Secure by design.
