@@ -4,6 +4,12 @@ layout: layouts/base.njk
 {{ content | safe}}
 <!-- author -->
 <hr />
+
+<div style="text-aligh: center;">
+    <span style="font-size: 50px"><a id="clap" onclick="clap(`{{ page.fileSlug }}`)" class="clapCount">👏🏽</a></span>
+    <p id="clapCount"></p>
+</div>
+
 <div style="text-aligh: center;">
   {% include 'layouts/author.njk' %}
 </div>
