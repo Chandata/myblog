@@ -1,4 +1,8 @@
 const util = require('util');
+const algoliasearch = require('algoliasearch');
+const searchClient = algoliasearch('51067V6I2P','f6f1406a18455de11279793f8a952a58')
+const algoliaIndex = searchClient.initIndex('blog');
+
 
 module.exports = function(eleventyConfig) {
   // Output directory: _site
@@ -22,4 +26,21 @@ module.exports = function(eleventyConfig) {
     const d = new Date(value);
     return `${d.toLocaleDateString(ISOcode, options)}`;
   })
+// search config, only searching for all files that ends in .md
+eleventyConfig.addCollection('algolia', collection => {
+  const index = collection.getAll().filter(item => {
+    let extension = item.inputPath.split('.').pop();
+    return extension === 'md';
+  }).map(item => {
+    return {
+      objectID: item.data.page.url,
+      title: item.data.title,
+      author: item.data.author,
+      description: item.data.description,
+      url: item.data.page.url,
+      content: JSON.stringify(item.template.frontMatter.content)
+    }
+  });
+  return algoliaIndex.saveObjects(index);
+})
 };
