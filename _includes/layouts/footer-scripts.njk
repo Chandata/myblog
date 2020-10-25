@@ -3,11 +3,25 @@
 <script src="https://cdn.jsdelivr.net/npm/instantsearch.js@3.4.0/dist/instantsearch.production.min.js" integrity="sha256-pM0n88cBFRHpSn0N26ETsQdwpA7WAXJDvkHeCLh3ujI=" crossorigin="anonymous"></script>
 
 <!-- The core Firebase JS SDK is always required and must be listed first -->
-<script src="https://www.gstatic.com/firebasejs/7.2.2/firebase-app.js"></script>
-<script src="https://www.gstatic.com/firebasejs/6.6.1/firebase-firestore.js"></script>
+<script src="https://www.gstatic.com/firebasejs/7.24.0/firebase-app.js"></script>
+
 <!-- TODO: Add SDKs for Firebase products that you want to use
      https://firebase.google.com/docs/web/setup#available-libraries -->
-     
+
+<script>
+  // Your web app's Firebase configuration
+  var firebaseConfig = {
+    apiKey: "AIzaSyDjrm2ZetCyiTMvWJ6GP3CsWJsMB5dE_Ks",
+    authDomain: "my-blog-b6494.firebaseapp.com",
+    databaseURL: "https://my-blog-b6494.firebaseio.com",
+    projectId: "my-blog-b6494",
+    storageBucket: "my-blog-b6494.appspot.com",
+    messagingSenderId: "989734189951",
+    appId: "1:989734189951:web:09a908ac4a2e2162f8784a"
+  };
+  // Initialize Firebase
+  firebase.initializeApp(firebaseConfig);
+</script>
 
 <script src="/vendor/jquery/jquery.min.js"></script>
 <script src="/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
