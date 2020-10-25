@@ -84,25 +84,53 @@
 <p>This is even better.</p>
 <p>This was also done with Netlify CMS :)</p>
 
-<!-- author -->
-<hr />
+<hr>
+<div style="text-align: center;">
+  <script>
+  document.addEventListener('DOMContentLoaded', function() {
+    var clapRef = db.collection('claps').doc(`my-second-post`);
+    clapRef.get()
+    .then((docSnapshot) => {
+      if (docSnapshot.exists) {
+        clapRef.onSnapshot((doc) => {
+          document.getElementById('clapCount').innerHTML = `${doc.data().clapCount} claps`;
+        });
+      } else {
+        clapRef.set({
+          clapCount: 0
+        }).then(function() {
+          db.collection('claps').doc(`my-second-post`).onSnapshot(function(doc) {
+            document.getElementById('clapCount').innerHTML = `${doc.data().clapCount} claps`;
+          });
+        });
+      }
+    });
 
-<div style="text-aligh: center;">
-    <span style="font-size: 50px"><a id="clap" onclick="clap(`my-second-post`)" class="clapCount">👏🏽</a></span>
-    <p id="clapCount"></p>
+    clap = function(article) {
+      var increment = firebase.firestore.FieldValue.increment(1);
+      clapRef.update({
+        clapCount: increment
+      });
+    }
+  });
+  </script>
+  <span style="font-size: 25 px"><a id="clap" onclick="clap(`my-second-post`)" class="clapCount">👏🏽</a></span>
+  <p id="clapCount"></p>
 </div>
 
-<div style="text-aligh: center;">
+<hr>
+
+<div style="text-align: center;">
   <p><strong>About the Author</strong></p>
 <p><em>Chandan Hemnani</em></p>
 <img src="https://res.cloudinary.com/stuckonsap/image/upload/c_thumb,g_face,w_150,c_fill,ar_1:1,g_auto,r_max/v1603564892/Chandan_outdoor_uk3ryb.jpg">
 <p>SAP Evangelist, experienced Technical Architect and Designer, Expert in all SAP Technologies. passionate about the latest & greatest advancements in web technologies.</p>
 
 </div>
+
+<hr>
 <div style="text-align: center;">
-  <p>
-    <a href="/"> <-- Home </a>
-  </p>
+  <p><a href="/">← Home</a></p>
 </div>
 
       </div>
@@ -153,7 +181,12 @@
 
 <!-- The core Firebase JS SDK is always required and must be listed first -->
 <script src="https://www.gstatic.com/firebasejs/7.24.0/firebase-app.js"></script>
-<script defer src="https://www.gstatic.com/firebasejs/7.24.0/firebase-firestore.js"></script>
+<script src="https://www.gstatic.com/firebasejs/7.24.0/firebase-firestore.js"></script>
+
+<!-- older versions <script <script src="https://www.gstatic.com/firebasejs/7.2.2/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/6.6.1/firebase-firestore.js"></script>
+-->
+
 <!-- TODO: Add SDKs for Firebase products that you want to use
      https://firebase.google.com/docs/web/setup#available-libraries -->
 
@@ -172,7 +205,7 @@
   firebase.initializeApp(firebaseConfig);
 </script>
 
-var db = firebase.firestore();
+var db = firebase.firestore() ;
 
 <script src="/vendor/jquery/jquery.min.js"></script>
 <script src="/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
@@ -181,6 +214,9 @@ var db = firebase.firestore();
   const copyright = $('.copyright');
   copyright.text(`Copyright, Chandan Hemnani ${new Date().getFullYear()}`);
 </script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.17.1/components/prism-core.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.17.1/plugins/autoloader/prism-autoloader.min.js"></script>
 
 </body>
 
