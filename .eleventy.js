@@ -4,6 +4,7 @@ const searchClient = algoliasearch('51067V6I2P','f6f1406a18455de11279793f8a952a5
 const algoliaIndex = searchClient.initIndex('blog');
 
 
+
 module.exports = function(eleventyConfig) {
   // Output directory: _site
 
